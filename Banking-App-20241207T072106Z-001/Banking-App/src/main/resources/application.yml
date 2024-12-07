@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: Banking-App
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banking_app
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  security:
+    oauth2:
+      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8084/realms/Shubham
+#          jwk-set-uri: http://localhost:8084/realms/Shubham/protocol/openid-connect/certs
+
+         opaquetoken:
+           client-id: springboot-be
+           client-secret: psmybyXPHkwh1UJbYK6BmpkEaoAtdGLc
+           introspection-uri: http://localhost:8084/realms/Shubham/protocol/openid-connect/token/introspect
+server:
+  port: 8081
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
